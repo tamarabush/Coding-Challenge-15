@@ -2,7 +2,7 @@
 
 //creating the array of assets
 const assetsList = [
-    {id: 1089, name: "Nestle India", type: "stock", price: 100, quantity: 120},
+    {id: 1089, name: "Nestle India", type: "stock", price: 200, quantity: 120},
     {id: 1569, name: "Tesla Inc.", type: "stock", price: 550, quantity: 50},
     {id: 6, name: "Corporate Bond XYZ", type: "bond", price: 1020, quantity: 20},
     {id: 8, name: "Municipal Bond ABC", type: "bond", price: 1100, quantity: 15},
