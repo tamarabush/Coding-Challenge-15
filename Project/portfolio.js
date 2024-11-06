@@ -1,16 +1,17 @@
 //TASK 2 - Create the portfolio module
 
-const {assetsList} = require (',/assetsList');
+import { assets } from ',/asset.js';
 
 //create function to calculate the total value 
-function calculatePortfolioValue()  {
-    return assetsList.reduce((total, asset) => (total + asset.price * asset.quantity), 0);
+export function calculatePortfolioValue()  {
+    return assets.reduce((total, asset) => total + asset.price * asset.quantity, 0);
 }
 
 //create function to calculate the percentage for each
 function getPortfolioAllocation() {
     const totalSum = calculatePortfolioValue();
-    return assetsList.map(asset => ({
+    //using map method 
+    return assets.map(asset => ({
         name: asset.name,
         allocation: ((asset.price * asset.quantity) / totalSum ) * 100
     }));

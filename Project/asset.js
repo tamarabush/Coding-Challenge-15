@@ -1,7 +1,7 @@
 //TASK 1 - Create the Asset Module:
 
 //creating the array of assets
-const assetsList = [
+export const assets = [
     {id: 1089, name: "Nestle India", type: "stock", price: 200, quantity: 120},
     {id: 1569, name: "Tesla Inc.", type: "stock", price: 550, quantity: 50},
     {id: 6, name: "Corporate Bond XYZ", type: "bond", price: 1020, quantity: 20},
@@ -10,9 +10,9 @@ const assetsList = [
 ]
 
 //create function to get assets details
-function getAssetById(id) {
-    return assetsList.find(ass => assetsList.id === id);
+export function getAssetById(id) {
+    return assets.find(asset => asset.id === id);
 }
 
 //exporting the assets array and getAssestById function 
-module.exports = {assetsList, getAssetById}
+module.exports = {assets, getAssetById}
