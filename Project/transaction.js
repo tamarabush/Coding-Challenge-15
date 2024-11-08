@@ -1,10 +1,10 @@
 //TASK 3 - Create the Transaction Module:
 
 //importing the getAssetById function 
-const { getAssetById } = require('./asset');
+import { getAssetById } from './asset';
 
 //defining the transasction class
-class Transaction {
+export class Transaction {
     constructor(assetId, type, quantity) {
         const asset = getAssetById(assetId); 
 
@@ -21,5 +21,3 @@ class Transaction {
     }
 }
 
-//export the Transaction class
-module.exports = { Transaction };

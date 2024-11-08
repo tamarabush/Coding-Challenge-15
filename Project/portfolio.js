@@ -8,7 +8,7 @@ export function calculatePortfolioValue()  {
 }
 
 //create function to calculate the percentage for each
-function getPortfolioAllocation() {
+export function getPortfolioAllocation() {
     const totalSum = calculatePortfolioValue();
     //using map method 
     return assets.map(asset => ({
@@ -16,6 +16,3 @@ function getPortfolioAllocation() {
         allocation: ((asset.price * asset.quantity) / totalSum ) * 100
     }));
 }
-
-//export the functions using export mehtod
-module.exports = {calculatePortfolioValue, getPortfolioAllocation};
