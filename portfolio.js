@@ -1,6 +1,6 @@
 //TASK 2 - Create the portfolio module
 
-import { assets } from './asset.js';
+import { assets } from "./asset.js";
 
 //create function to calculate the total value 
 export function calculatePortfolioValue()  {
