@@ -13,3 +13,4 @@ export const assets = [
 export function getAssetById(id) {
     return assets.find(asset => asset.id === id);
 }
+

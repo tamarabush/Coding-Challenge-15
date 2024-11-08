@@ -1,8 +1,8 @@
 //TASK 4 - Create the Main APPlication:
 
 //impoting functions from the other files
-import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio';
-import { Transaction } from './transaction';
+import { calculatePortfolioValue, getPortfolioAllocation } from './Project/portfolio';
+import { Transaction } from './Project/transaction';
 
 //console log portfolio vale
 console.log("Total Portfolio Value: $" + calculatePortfolioValue());
