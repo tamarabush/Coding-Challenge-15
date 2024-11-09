@@ -23,7 +23,7 @@ function displayPortfolio() {
 // Function to display transaction details
 function displayTransactions(transactions) {
     const transactionList = transactions.map(transaction =>
-        `<li>Transaction: ${transaction.type} ${transaction.quantity} of asset ID ${transaction.assetId}</li>`
+        `<li>Transaction: ${transaction.type} ${transaction.quantity} of ${transaction.assetName} (ID: ${transaction.assetId})</li>`
     ).join('');
     document.getElementById('transaction-log').innerHTML = `<ul>${transactionList}</ul>`;
 }

@@ -1,11 +1,15 @@
 //TASK 3 - Create the Transaction Module:
 
-//importing the getAssetById function 
-import { getAssetById } from "./asset.js";
+// Importing the getAssetById function 
+import { getAssetById } from './asset.js';
 
-//defining the transasction class
+// Defining the transaction class
 export class Transaction {
     constructor(assetId, type, quantity) {
+        this.assetId = assetId;
+        this.type = type;
+        this.quantity = quantity;
+
         const asset = getAssetById(assetId); 
 
         if (type === "buy") {
@@ -18,5 +22,7 @@ export class Transaction {
         } else {
             throw new Error("Invalid transaction type");
         }
+
+        this.assetName = asset.name;
     }
 }
