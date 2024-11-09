@@ -1,9 +1,9 @@
 //TASK 3 - Create the Transaction Module:
 
-// Importing the getAssetById function 
+//importing the getAssetById function 
 import { getAssetById } from './asset.js';
 
-// Defining the transaction class
+//create the transaction class
 export class Transaction {
     constructor(assetId, type, quantity) {
         this.assetId = assetId;
