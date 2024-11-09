@@ -1,42 +1,44 @@
-import { calculatePortfolioValue, getPortfolioAllocation } from './portfolio.mjs';
-import { Transaction } from './transaction.mjs';
+// TASK 4 - Create the Main Application:
 
-// Function to update the HTML content
-function updateHTMLContent() {
-    // Display portfolio value
+// Importing functions from the other files
+import { calculatePortfolioValue, getPortfolioAllocation } from "./portfolio.js";
+import { Transaction } from "./transaction.js";
+
+// Function to display the portfolio details and transactions
+function displayPortfolio() {
+    // Get the portfolio value and allocation
     const portfolioValue = calculatePortfolioValue();
+    const portfolioAllocation = getPortfolioAllocation();
+
+    // Display the portfolio value
     document.getElementById('portfolio-value').innerHTML = `Total Portfolio Value: $${portfolioValue}`;
 
-    // Display portfolio allocation
-    const allocation = getPortfolioAllocation();
-    let allocationHtml = '<h2>Portfolio Allocation:</h2><ul>';
-    allocation.forEach(asset => {
-        allocationHtml += `<li>${asset.name}: ${asset.allocation.toFixed(2)}%</li>`;
-    });
-    allocationHtml += '</ul>';
-    document.getElementById('portfolio-allocation').innerHTML = allocationHtml;
-
-    // Create new transactions and display details
-    try {
-        const transaction1 = new Transaction(1, "buy", 20); 
-        const transaction2 = new Transaction(9, "sell", 10);
-        const transaction3 = new Transaction(8, "buy", 15);
-
-        // Display transaction details
-        let transactionsHtml = '<h2>Transactions Completed:</h2><ul>';
-        transactionsHtml += `<li>${JSON.stringify(transaction1)}</li>`;
-        transactionsHtml += `<li>${JSON.stringify(transaction2)}</li>`;
-        transactionsHtml += `<li>${JSON.stringify(transaction3)}</li>`;
-        transactionsHtml += '</ul>';
-        document.getElementById('transaction-details').innerHTML = transactionsHtml;
-
-        // Display updated portfolio value
-        const updatedPortfolioValue = calculatePortfolioValue();
-        document.getElementById('portfolio-value').innerHTML = `Updated Portfolio Value: $${updatedPortfolioValue}`;
-    } catch (error) {
-        document.getElementById('transaction-details').innerHTML = `<p style="color: red;">${error.message}</p>`;
-    }
+    // Display the portfolio allocation
+    const allocationList = portfolioAllocation.map(allocation => 
+        `<li>${allocation.name}: ${allocation.allocation.toFixed(2)}%</li>`
+    ).join('');
+    document.getElementById('portfolio-allocation').innerHTML = `<ul>${allocationList}</ul>`;
 }
 
-// Call the function to update the HTML content
-updateHTMLContent();
+// Function to display transaction details
+function displayTransactions(transactions) {
+    const transactionList = transactions.map(transaction =>
+        `<li>Transaction: ${transaction.type} ${transaction.quantity} of asset ID ${transaction.assetId}</li>`
+    ).join('');
+    document.getElementById('transaction-log').innerHTML = `<ul>${transactionList}</ul>`;
+}
+
+// Perform transactions and update the display
+try {
+    const transactions = [
+        new Transaction(1, "buy", 20), 
+        new Transaction(9, "sell", 10),
+        new Transaction(8, "buy", 15)
+    ];
+
+    // Display the transactions and updated portfolio value
+    displayTransactions(transactions);
+    displayPortfolio();
+} catch (error) {
+    console.error(error.message);
+}
